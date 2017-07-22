@@ -98,197 +98,59 @@
 
             <!--First row-->
             <div class="row wow">
-                <!--First column-->
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s">
-                    <!--Card-->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay hm-white-slight">
-                            <img src="images/pictures/grafico1.png" class="img-fluid" alt="">
-                            <a href="#!">
-                                <div class="mask"></div>
-                            </a>
-                        </div>
-                        <!--/.Card image-->
-
-                        <!--Card content-->
-                        <div class="card-block">
-                            <!--Title-->
-                            <h4 class="card-title">Uréia Agrícola</h4>
-                            <!--Text-->
-                            <p class="card-text">Adubo nitrogenado 40-00-00.</p>
-                            <div class="read-more">
-                                <a href="#!" class="btn btn-brown">Comprar - 87$</a>
-                            </div>
-                        </div>
-                        <!--/.Card content-->
-
-                    </div>
-                    <!--/.Card-->
-                </div>
-                <!--/.First column-->
-                <!-- valores = round(abs(rnorm(10) * 10),2)
-                     barplot(valores, main ="Oscilação de preços")
-                -->
-                <!--Second column-->
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.4s">
-                    <!--Card-->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay hm-white-slight">
-                            <img src="images/pictures/grafico2.png" class="img-fluid" alt="">
-                            <a href="#!">
-                                <div class="mask"></div>
-                            </a>
-                        </div>
-                        <!--/.Card image-->
-
-                        <!--Card content-->
-                        <div class="card-block">
-                            <!--Title-->
-                            <h4 class="card-title">Superfosfato Triplo</h4>
-                            <!--Text-->
-                            <p class="card-text">Adubo fosfato 00-46-00.</p>
-                            <div class="read-more">
-                                <a href="#!" class="btn btn-brown">Comprar - 5$</a>
-                            </div>
-                        </div>
-                        <!--/.Card content-->
-
-                    </div>
-                    <!--/.Card-->
-                </div>
-                <!--/.Second column-->
-
-                <!--Third column-->
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.6s">
-                    <!--Card-->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay hm-white-slight">
-                            <img src="images/pictures/grafico3.png" class="img-fluid" alt="">
-                            <a href="#!">
-                                <div class="mask"></div>
-                            </a>
-                        </div>
-                        <!--/.Card image-->
-
-                        <!--Card content-->
-                        <div class="card-block">
-                            <!--Title-->
-                            <h4 class="card-title">Superfosfato Amoniado</h4>
-                            <!--Text-->
-                            <p class="card-text">Adubo amoníaco 03-17-00.</p>
-                            <div class="read-more">
-                                <a href="#!" class="btn btn-brown">Comprar - 46$</a>
-                            </div>
-                        </div>
-                        <!--/.Card content-->
-
-                    </div>
-                    <!--/.Card-->
-                </div>
-                <!--/.Third column-->
+                <% var lista = [
+                    {
+                        identificador: "graphicTest",
+                        nome: "teste",
+                        valor: 12.75,
+                        descricao: "uma descricao de teste 1"
+                    },
+                    {
+                        identificador: "graphicTest2",
+                        nome: "teste",
+                        valor: 11.75,
+                        descricao: "uma descricao de teste 2"
+                    },
+                    {
+                        identificador: "graphicTest3",
+                        nome: "teste",
+                        valor: 10.75,
+                        descricao: "uma descricao de teste 3"
+                    }
+                ] %>
+                <% for(i = 0; i < lista.length; i++){ %>
+                    <% obj= lista[i]; %>
+                    <%- include column %>
+                <% } %>
             </div>
             <!--/.First row-->
 
             <!--Second row-->
             <div class="row">
-                <!--First column-->
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s">
-                    <!--Card-->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay hm-white-slight">
-                            <img src="images/pictures/grafico4.png" class="img-fluid" alt="">
-                            <a href="#!">
-                                <div class="mask"></div>
-                            </a>
-                        </div>
-                        <!--/.Card image-->
-
-                        <!--Card content-->
-                        <div class="card-block">
-                            <!--Title-->
-                            <h4 class="card-title">Map Granulado</h4>
-                            <!--Text-->
-                            <p class="card-text">Adubo granulado 10-50-00.</p>
-                            <div class="read-more">
-                                <a href="#!" class="btn btn-brown">Comprar - 58$</a>
-                            </div>
-                        </div>
-                        <!--/.Card content-->
-
-                    </div>
-                    <!--/.Card-->
-                </div>
-                <!--/.First column-->
-
-                <!--Second column-->
-                <div class="col-lg-4 wow fadeIn" data-wow-delay="0.4s">
-                    <!--Card-->
-                    <div class="card">
-
-                        <!--Card image-->
-                        <div class="view overlay hm-white-slight">
-                            <img src="images/pictures/grafico5.png" class="img-fluid" alt="">
-                            <a href="#!">
-                                <div class="mask"></div>
-                            </a>
-                        </div>
-                        <!--/.Card image-->
-
-                        <!--Card content-->
-                        <div class="card-block">
-                            <!--Title-->
-                            <h4 class="card-title">Map em Pó</h4>
-                            <!--Text-->
-                            <p class="card-text">Adubo em pó 10-50-00.</p>
-                            <div class="read-more">
-                                <a href="#!" class="btn btn-brown">Comprar - 26$</a>
-                            </div>
-                        </div>
-                        <!--/.Card content-->
-
-                    </div>
-                    <!--/.Card-->
-                </div>
-                <!--Second column-->
-
-                <!--Third column-->
-                <div class="col-lg-4">
-                    <!--Card-->
-                    <div class="card wow fadeIn" data-wow-delay="0.6s">
-
-                        <!--Card image-->
-                        <div class="view overlay hm-white-slight">
-                            <img src="images/pictures/grafico6.png" class="img-fluid" alt="">
-                            <a href="#!">
-                                <div class="mask"></div>
-                            </a>
-                        </div>
-                        <!--/.Card image-->
-
-                        <!--Card content-->
-                        <div class="card-block">
-                            <!--Title-->
-                            <h4 class="card-title">FTE-Br-12</h4>
-                            <!--Text-->
-                            <p class="card-text">Adubo de micronutrientes com bromo.</p>
-                            <div class="read-more">
-                                <a href="#!" class="btn btn-brown">Comprar - 49$</a>
-                            </div> 
-                        </div>
-                        <!--/.Card content-->
-
-                    </div>
-                    <!--/.Card-->
-                </div>
-                <!--/.Third column-->
+                <% var lista2 = [
+                    {
+                        identificador: "graphicTest4",
+                        nome: "teste",
+                        valor: 19.75,
+                        descricao: "uma descricao de teste 4"
+                    },
+                    {
+                        identificador: "graphicTest5",
+                        nome: "teste",
+                        valor: 18.75,
+                        descricao: "uma descricao de teste 5"
+                    },
+                    {
+                        identificador: "graphicTest6",
+                        nome: "teste",
+                        valor: 17.75,
+                        descricao: "uma descricao de teste 6"
+                    }
+                ] %>
+                <% for(i = 0; i < lista2.length; i++){ %>
+                    <% obj= lista2[i]; %>
+                    <%- include column %>
+                <% } %>
             </div>
             <!--/.Second row-->
             <hr>
@@ -424,9 +286,18 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="javascripts/mdb.min.js"></script>
 
+    <!-- Google charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script type="text/javascript" src="javascripts/pagecompiler.js"></script>
+
     <script>
-    new WOW().init();
+        new WOW().init();
+        
+        google.charts.load('current', {packages: ['corechart', 'bar']});
+        google.charts.setOnLoadCallback(chartcompiler);
     </script>
+
     
 </body>
 
