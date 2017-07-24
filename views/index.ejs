@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="planejeinsumos">
 
 <head>
 
@@ -10,7 +10,7 @@
     <title>Planeje Insumos</title>
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylesheets/fontawesome.min.css">
 
     <!-- Bootstrap core CSS -->
     <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@
 
 </head>
 
-<body>
+<body ng-controller="produtoscontroller">
 
     <header>
         <!--Navbar-->
@@ -95,66 +95,10 @@
             </div>
             <!--/.Page heading-->
             <hr>
-
-            <!--First row-->
-            <div class="row wow">
-                <% var lista = [
-                    {
-                        identificador: "graphicTest",
-                        nome: "teste",
-                        valor: 12.75,
-                        descricao: "uma descricao de teste 1"
-                    },
-                    {
-                        identificador: "graphicTest2",
-                        nome: "teste",
-                        valor: 11.75,
-                        descricao: "uma descricao de teste 2"
-                    },
-                    {
-                        identificador: "graphicTest3",
-                        nome: "teste",
-                        valor: 10.75,
-                        descricao: "uma descricao de teste 3"
-                    }
-                ] %>
-                <% for(i = 0; i < lista.length; i++){ %>
-                    <% obj= lista[i]; %>
-                    <%- include column %>
-                <% } %>
-            </div>
-            <!--/.First row-->
-
-            <!--Second row-->
-            <div class="row">
-                <% var lista2 = [
-                    {
-                        identificador: "graphicTest4",
-                        nome: "teste",
-                        valor: 19.75,
-                        descricao: "uma descricao de teste 4"
-                    },
-                    {
-                        identificador: "graphicTest5",
-                        nome: "teste",
-                        valor: 18.75,
-                        descricao: "uma descricao de teste 5"
-                    },
-                    {
-                        identificador: "graphicTest6",
-                        nome: "teste",
-                        valor: 17.75,
-                        descricao: "uma descricao de teste 6"
-                    }
-                ] %>
-                <% for(i = 0; i < lista2.length; i++){ %>
-                    <% obj= lista2[i]; %>
-                    <%- include column %>
-                <% } %>
-            </div>
-            <!--/.Second row-->
+            <!--Row-->
+                <%- include produtos %>
+            <!--/.Row-->
             <hr>
-
             <!--Pagination-->
             <nav class="row flex-center wow fadeIn" data-wow-delay="0.2s">
                 <ul class="pagination">
@@ -187,89 +131,7 @@
     </main>
 
     <!--Footer-->
-    <footer class="page-footer center-on-small-only">
-        <!--Footer links-->
-        <div class="container-fluid">
-            <div class="row">
-                <!--First column-->
-                <div class="col-md-3 offset-lg-1 hidden-lg-down">
-                    <h5 class="title">Sobre nós</h5>
-                    <p>Uma startup que tem como foco aumentar a rentabilidade do produtor com a economia de compra dos insumos.</p>
-                </div>
-                <!--/.First column-->
-                <hr class="hidden-md-up">
-                <!--Second column-->
-                <div class="col-lg-2 col-md-4 offset-lg-1">
-                    <h5 class="title">Distribuidores</h5>
-                    <ul>
-                        <li>
-                            <a href="#!">Capivara 1</a>
-                        </li>
-                        <li>
-                            <a href="#!">Capivara 2</a>
-                        </li>
-                        <li>
-                            <a href="#!">Capivara 3</a>
-                        </li>
-                        <li>
-                            <a href="#!">Capivara 4</a>
-                        </li>
-                    </ul>
-                </div>
-                <!--/.Second column-->
-                <hr class="hidden-md-up">
-                <!--Third column-->
-                <div class="col-lg-2 col-md-4">
-                    <h5 class="title">Colaboradores</h5>
-                    <ul>
-                        <li>
-                            <a href="#!">João</a>
-                        </li>
-                        <li>
-                            <a href="#!">Maria</a>
-                        </li>
-                        <li>
-                            <a href="#!">José</a>
-                        </li>
-                        <li>
-                            <a href="#!">Wisky</a>
-                        </li>
-                    </ul>
-                </div>
-                <!--/.Third column-->
-                <hr class="hidden-md-up">
-                <!--Fourth column-->
-                <div class="col-lg-2 col-md-4">
-                    <h5 class="title">Find me on</h5>
-                    <ul>
-                        <li>
-                            <a href="#!">Facebook</a>
-                        </li>
-                        <li>
-                            <a href="#!">Youtube</a>
-                        </li>
-                        <li>
-                            <a href="#!">Instagram</a>
-                        </li>
-                        <li>
-                            <a href="#!">Pinterest</a>
-                        </li>
-                    </ul>
-                </div>
-                <!--/.Fourth column-->
-            </div>
-        </div>
-        <!--/.Footer links-->
-
-        <!--Copyright-->
-        <div class="footer-copyright">
-            <div class="containter-fluid">
-                <!--© 2015 Copyright: <a href="http://www.MDBootstrap.com"> MDBootstrap.com </a> -->
-                © 2017 Copyright: <a href="http://www.MDBootstrap.com"> Compare Insumos</a>
-            </div>
-        </div>
-        <!--/.Copyright-->
-    </footer>
+        <%- include footer %>
     <!--/.Footer-->
 
     <!-- SCRIPTS -->
@@ -287,7 +149,13 @@
     <script type="text/javascript" src="javascripts/mdb.min.js"></script>
 
     <!-- Google charts -->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="javascripts/googlechart.min.js"></script>
+
+    <!-- Angular -->
+    <script type="text/javascript" src="javascripts/angular.min.js"></script>
+
+    <!-- Angular controller -->
+    <script type="text/javascript" src="controllers/pagecontroller.js"></script>
 
     <script type="text/javascript" src="javascripts/pagecompiler.js"></script>
 

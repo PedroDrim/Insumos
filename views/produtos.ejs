@@ -1,0 +1,54 @@
+<!--First row-->
+<div class="row wow">
+    <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s" ng-repeat="obj in linha1">
+        <!--Card-->
+        <div class="card">
+
+            <!--Card image-->
+            <div class="view overlay hm-white-slight" id={{obj.identificador}}>
+            </div>
+            <!--/.Card image-->
+
+            <!--Card content-->
+            <div class="card-block">
+                <!--Title-->
+                <h4 class="card-title">{{obj.nome}}</h4>
+                <!--Text-->
+                <p class="card-text">{{obj.descricao}}</p>
+                <div class="read-more">
+                    <a href="#!" class="btn btn-brown">Comprar - {{obj.valor}} $</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/.First row-->
+
+<!--Second row-->
+ <div class="row">
+    <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s" ng-repeat="obj in linha2">
+        <!--Card-->
+        <div class="card">
+
+            <!--Card image-->
+            <div class="view overlay hm-white-slight" id={{obj.identificador}}>
+            </div>
+            <!--/.Card image-->
+
+            <!--Card content-->
+            <div class="card-block">
+                <!--Title-->
+                <h4 class="card-title">{{obj.nome}}</h4>
+                <!--Text-->
+                <p class="card-text">{{obj.descricao}}</p>
+                <div class="read-more">
+                    <a href="#!" class="btn btn-brown">Comprar - {{obj.valor}} $</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--/.Second row-->
+
+
+
