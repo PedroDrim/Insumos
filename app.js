@@ -1,38 +1,125 @@
+/**
+ * Importando Express.
+ * Framework para apricação web.
+ */
 var express = require('express');
+
+/**
+ * Importando Path.
+ * Módulo para trabalhar com arquivos e diretórios.
+ */
 var path = require('path');
+
+/**
+ * Importando Serve-Favicon.
+ * Middleware express para implemetação de icones.
+ */
 var favicon = require('serve-favicon');
+
+/**
+ * Importando Morgan.
+ * Middleware express para Log's de requisições http.
+ */
 var logger = require('morgan');
+
+/**
+ * Importando Cookie-Parser.
+ * Middleware express para conversão do cookie para JSON (req.cookie).
+ */
 var cookieParser = require('cookie-parser');
+
+/**
+ * Importando Body-Parser.
+ * Middleware express para conversão de requisições http para JSON (req.body).
+ */
 var bodyParser = require('body-parser');
 
+/**
+ * Importando Mongoose.
+ * Ferramenta para modelagem de objetos para o MongoDB.
+ */
+var mongoose = require('mongoose');
+
+/**
+ * Importando rotas 'index'.
+ */
 var index = require('./routes/index');
+
+/**
+ * Importando rotas 'produtos'.
+ */
 var produtos = require('./routes/produtos');
 
+/**
+ * Iniciando Express.
+ */
 var app = express();
 
-// view engine setup
+/**
+ * Conectando ao Banco de Dados.
+ */
+mongoose.connect('mongodb://localhost/planejeinsumos', function(err){
+  if(err){
+    console.log("Houve um erro ao connectar no mongo.");
+  }else{
+    console.log("Conexão ao mongo realizada com sucesso.")
+  }
+});
+
+/**
+ * Definindo Views (diretório na primeira linha / modelo na segunda linha).
+ */
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// uncomment after placing your favicon in /public
+/**
+ * Definindo Icone da página (Iniciando middleware serve-favicon).
+ */
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+/**
+ * Iniciando middleware morgan.
+ */
 app.use(logger('dev'));
+
+/**
+ * Iniciando middleware body-parser.
+ */
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+/**
+ * Iniciando middleware cookie-parser.
+ */
 app.use(cookieParser());
+
+/**
+ * Definindo diretório de arquivos publicos da página.
+ */
 app.use(express.static(path.join(__dirname, 'public')));
 
+/**
+ * Definindo a rota 'index' como a inicial.
+ */
 app.use('/', index);
+
+/**
+ * Definindo a rota 'produtos'.
+ */
 app.use('/produtos', produtos);
 
-// catch 404 and forward to error handler
+/**
+ * Definindo função para gerenciar erros 404.
+ */
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);
 });
 
-// error handler
+/**
+ * Definindo função para capturar erros.
+ */
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;

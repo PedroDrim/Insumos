@@ -48,7 +48,7 @@
 
 </head>
 
-<body ng-controller="produtoscontroller">
+<body>
 
     <header>
         <!--Navbar-->
@@ -96,7 +96,9 @@
             <!--/.Page heading-->
             <hr>
             <!--Row-->
+            <div ng-controller="produtoscontroller" id="insumos">
                 <%- include produtos %>
+            </div>
             <!--/.Row-->
             <hr>
             <!--Pagination-->
@@ -157,13 +159,8 @@
     <!-- Angular controller -->
     <script type="text/javascript" src="controllers/pagecontroller.js"></script>
 
-    <script type="text/javascript" src="javascripts/pagecompiler.js"></script>
-
     <script>
         new WOW().init();
-        
-        google.charts.load('current', {packages: ['corechart', 'bar']});
-        google.charts.setOnLoadCallback(chartcompiler);
     </script>
 
     

@@ -8,38 +8,145 @@ router.get('/data.json', function(req, res, next) {
     {
       identificador: "graphicTest",
       nome: "teste",
-      valor: 12.75,
-      descricao: "uma descricao de teste 1"
+      descricao: "uma descricao de teste 1",
+      valores:[
+        {
+          marca: "A",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        },
+        {
+          marca: "B",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        },
+        {
+          marca: "C",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        },
+        {
+          marca: "D",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        }
+      ]
     },
+
     {
       identificador: "graphicTest2",
       nome: "teste",
-      valor: 11.75,
-      descricao: "uma descricao de teste 2"
+      descricao: "uma descricao de teste 2",
+      valores:[
+        {
+          marca: "A",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        },
+        {
+          marca: "B",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        },
+        {
+          marca: "C",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        },
+        {
+          marca: "D",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        }
+      ]
     },
+
     {
       identificador: "graphicTest3",
       nome: "teste",
-      valor: 10.75,
-      descricao: "uma descricao de teste 3"
+      descricao: "uma descricao de teste 3",
+      valores:[
+        {
+          marca: "A",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        },
+        {
+          marca: "B",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        },
+        {
+          marca: "C",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        },
+        {
+          marca: "D",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        }
+      ]
     },
+
     {
       identificador: "graphicTest4",
       nome: "teste",
-      valor: 19.75,
-      descricao: "uma descricao de teste 4"
+      descricao: "uma descricao de teste 4",
+      valores:[
+        {
+          marca: "A",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        },
+        {
+          marca: "B",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        },
+        {
+          marca: "C",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        },
+        {
+          marca: "D",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        }
+      ]
     },
+
     {
       identificador: "graphicTest5",
       nome: "teste",
-      valor: 10.75,
-      descricao: "uma descricao de teste 5"
+      descricao: "uma descricao de teste 5",
+      valores:[
+        {
+          marca: "A",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        },
+        {
+          marca: "B",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        },
+        {
+          marca: "C",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        },
+        {
+          marca: "D",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        }
+      ]
     },
+
     {
       identificador: "graphicTest6",
       nome: "teste",
-      valor: 11.75,
-      descricao: "uma descricao de teste 6"
+      descricao: "uma descricao de teste 6",
+      valores:[
+        {
+          marca: "A",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        },
+        {
+          marca: "B",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        },
+        {
+          marca: "C",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        },
+        {
+          marca: "D",
+          preco: Math.round((Math.random() * 100) * 100) / 100
+        }
+      ]
     }
   ]
 
