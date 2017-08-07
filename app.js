@@ -38,7 +38,9 @@ var bodyParser = require('body-parser');
  * Importando Mongoose.
  * Ferramenta para modelagem de objetos para o MongoDB.
  */
+/*
 var mongoose = require('mongoose');
+*/
 
 /**
  * Importando rotas 'index'.
@@ -58,6 +60,7 @@ var app = express();
 /**
  * Conectando ao Banco de Dados.
  */
+/*
 mongoose.connect('mongodb://localhost/planejeinsumos', function(err){
   if(err){
     console.log("Houve um erro ao connectar no mongo.");
@@ -65,6 +68,7 @@ mongoose.connect('mongodb://localhost/planejeinsumos', function(err){
     console.log("Conexão ao mongo realizada com sucesso.")
   }
 });
+*/
 
 /**
  * Definindo Views (diretório na primeira linha / modelo na segunda linha).
