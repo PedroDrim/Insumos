@@ -1,4 +1,4 @@
-var planejeinsumos = angular.module('planejeinsumos', []);
+var planejeinsumos = angular.module('planejeinsumos', ['chart.js']);
 
 planejeinsumos.controller('produtoscontroller', function($scope, $http) {
     
@@ -13,64 +13,53 @@ planejeinsumos.controller('produtoscontroller', function($scope, $http) {
     }, function (err) {
         console.log("ERRO POST: " + err)
     });
+
 });
 
-planejeinsumos.directive('card', function() {
-  return {
-    restrict: 'E',
-    template: 
-        '<div class="card">' +
-            '<div class="view overlay hm-white-slight" id={{obj.identificador}}></div>' +
-            '<div class="card-block">' +
-                '<h4 class="card-title">{{obj.nome}}</h4>' +
-                '<p class="card-text">{{obj.descricao}}</p>' +
-                '<div class="read-more">' +
-                    '<a href="#!" class="btn btn-brown">Comprar - {{obj.valor}} $</a>' +
+planejeinsumos.directive('insumos', function() {
+    return {
+        restrict: 'E',
+        template: 
+            '<div class="card">' +
+                '<div class="view overlay hm-white-slight">' +
+                    '<canvas id={{obj.identificador}} class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series" chart-click="onClick"></canvas>' +
                 '</div>' +
-            '</div>' +
-        '</div>',
-    replace: true,
+                '<div class="card-block">' +
+                    '<h4 class="card-title">{{obj.nome}}</h4>' +
+                    '<p class="card-text">{{obj.descricao}}</p>' +
+                    '<div class="read-more">' +
+                        '<a href="#!" class="btn btn-brown">Comprar - {{obj.valor}} $</a>' +
+                    '</div>' +
+                '</div>' +
+            '</div>',
+        replace: true,
 
-    link: function(scope, elem, attr){
+        link: function(scope, elem, attr){
 
-        scope.obj.valor = scope.obj.valores[0].preco;
-        scope.obj.valores.forEach(function(element) { 
-            if(element.preco < scope.obj.valor){
-                scope.obj.valor = element.preco;
-            }
-        });
+            var min = scope.obj.valores[0].preco;
 
-        var drawchart = function(){
+            scope.series = ['Preço'];
+            scope.labels = [];
+            scope.data = [];
+
+            scope.obj.valores.forEach(function(v) {
+                if(min > v.preco) {
+                    // A condicional está trocada, o menor é o maior.
+                    min = v.preco;
+                }
+
+                scope.labels.push(v.marca);
+                scope.data.push(v.preco);
+            });
             
-            var insumo = scope.obj;
-            var doc = document.getElementById(insumo.identificador);
-            var chart = new google.visualization.ColumnChart(doc);
-            var options = {
-                chartArea: {width: '100%', height: '100%'},
-                bars: 'vertical',
-                hAxis: {
-                    minValue: 0
-                },
-                legend: { position: "none" }
+            scope.onClick = function (points, evt) {
+                var barLabel = points[0]._model.label;
+                var barValue = scope.data[scope.labels.indexOf(barLabel)];
+                scope.obj.valor = barValue;
+                scope.$apply();
             };
 
-            var colunas = [
-                ["", "Preço por Kg"],
-            ];
-
-            insumo.valores.forEach(function(element) {
-                colunas.push([element.marca, element.preco]); 
-            });
-
-            var data = new google.visualization.arrayToDataTable(colunas);
-            chart.draw(data, options);
+            scope.obj.valor = min;
         }
-
-        google.charts.load('current', {
-            packages: ['corechart', 'bar'],
-            callback: drawchart
-        });
-
     }
-  }
 });
