@@ -22,13 +22,13 @@ planejeinsumos.directive('insumos', function() {
         template: 
             '<div class="card">' +
                 '<div class="view overlay hm-white-slight">' +
-                    '<canvas id={{obj.identificador}} class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series" chart-click="onClick"></canvas>' +
+                    '<canvas id={{obj.identificador}} class="chart chart-bar" chart-options="options" chart-data="data" chart-labels="labels" chart-series="series" chart-click="onClick"></canvas>' +
                 '</div>' +
                 '<div class="card-block">' +
                     '<h4 class="card-title">{{obj.nome}}</h4>' +
                     '<p class="card-text">{{obj.descricao}}</p>' +
                     '<div class="read-more">' +
-                        '<a href="#!" class="btn btn-brown">Comprar - {{obj.valor}} $</a>' +
+                        '<a href="#!" class="btn btn-brown">Comprar - {{obj.valor}} R$/Kg</a>' +
                     '</div>' +
                 '</div>' +
             '</div>',
@@ -41,6 +41,13 @@ planejeinsumos.directive('insumos', function() {
             scope.series = ['Preço'];
             scope.labels = [];
             scope.data = [];
+            scope.options = {
+                scales: {
+                    xAxes: [{
+                            display: false
+                    }]
+                }
+            };
 
             scope.obj.valores.forEach(function(v) {
                 if(min > v.preco) {

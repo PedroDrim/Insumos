@@ -131,15 +131,15 @@ router.get('/data.json', function(req, res, next) {
       descricao: "uma descricao de teste 6",
       valores:[
         {
-          marca: "A",
+          marca: "Marca A",
           preco: Math.round((Math.random() * 100) * 100) / 100
         },
         {
-          marca: "B",
+          marca: "Marca Grande B",
           preco: Math.round((Math.random() * 100) * 100) / 100
         },
         {
-          marca: "C",
+          marca: "Adubos Araguaia",
           preco: Math.round((Math.random() * 100) * 100) / 100
         },
         {
