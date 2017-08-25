@@ -1,9 +1,11 @@
 var express = require('express');
+var firebase = require('../service/firebase');
 var router = express.Router();
 
 /* GET users listing. */
 router.get('/data.json', function(req, res, next) {
   
+  // var database = firebase.database();
   var produtos = [
     {
       identificador: "graphicTest",
@@ -131,15 +133,15 @@ router.get('/data.json', function(req, res, next) {
       descricao: "uma descricao de teste 6",
       valores:[
         {
-          marca: "Marca A",
+          marca: "A",
           preco: Math.round((Math.random() * 100) * 100) / 100
         },
         {
-          marca: "Marca Grande B",
+          marca: "B",
           preco: Math.round((Math.random() * 100) * 100) / 100
         },
         {
-          marca: "Adubos Araguaia",
+          marca: "C",
           preco: Math.round((Math.random() * 100) * 100) / 100
         },
         {
