@@ -8,7 +8,7 @@ planejeinsumos.controller('produtoscontroller', function($scope, $http) {
         for(var key in list) {
             var x = {
                 identificador: key,
-                descricao: "teste",
+                descricao: "Fósforo: 0\nPotássio: 0\nEnxofre: 0",
                 valores: list[key]
             };
 
@@ -20,11 +20,13 @@ planejeinsumos.controller('produtoscontroller', function($scope, $http) {
         console.log("ERRO GET: " + err);
     });
 
-    //$http.post("/", {message: "oi"}).then(function (data) {
-    //    console.log("OK POST: " + data)
-    //}, function (err) {
-    //    console.log("ERRO POST: " + err)
-    //});
+    /*
+    $http.post("/", {message: "oi"}).then(function (data) {
+        console.log("OK POST: " + data)
+    }, function (err) {
+        console.log("ERRO POST: " + err)
+    });
+    */
 
 });
 
@@ -40,7 +42,7 @@ planejeinsumos.directive('insumos', function() {
                     '<h4 class="card-title">{{obj.identificador}}</h4>' +
                     '<p class="card-text">{{obj.descricao}}</p>' +
                     '<div class="read-more">' +
-                        '<a href="#!" class="btn btn-brown">Comprar - {{obj.valor}} R$/Kg</a>' +
+                        '<a href="#!" class="btn btn-brown">Variação: {{obj.valor}} R$/Ton</a>' +
                     '</div>' +
                 '</div>' +
             '</div>',
